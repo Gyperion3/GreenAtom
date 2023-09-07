@@ -1,0 +1,28 @@
+//3.2.Написать на Java метод, проверяющий является ли строка палиндромом.
+public class Main
+{
+	  public static boolean isPalindrome(String str) {
+        // Чтобы проверка прошла корректно убираем  пробелы и делаем нижний регистр
+        str = str.replaceAll("\\s", "").toLowerCase();
+        
+        int left = 0;
+        int right = str.length() - 1;
+        
+        while (left < right) {
+            if (str.charAt(left) != str.charAt(right)) {
+                return false; //не палиндром
+            }
+            left++;
+            right--;
+        }
+        
+        return true; // строка палиндром
+    }
+    
+    public static void main(String[] args) {
+        String str = "Аргентина манит негра";
+        boolean result = isPalindrome(str);
+        System.out.println("Is palindrome: " + result);
+    }
+}
+
